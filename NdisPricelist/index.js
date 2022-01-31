@@ -2,6 +2,16 @@ import { priceListData } from './priceListData';
 
 export const main = () => {
   // console.log('hello', priceListData);
+
+  const itemNames = [
+    ...new Set(priceListData.map((d) => d['Support Item Name'])),
+  ];
+  const splitedItemNames = itemNames.map((n) => n.split('-'));
+  // console.log(splitedItemNames);
+
+  const items = [...new Set(splitedItemNames.map((sn) => sn[1]))];
+  console.log(items);
+
   const itemNumbers = [
     ...new Set(priceListData.map((d) => d['Support Item Number'])),
   ];
@@ -11,23 +21,23 @@ export const main = () => {
   const SupportCategoryNumbers = [
     ...new Set(splitedItemNumbers.map((sn) => sn[0])),
   ];
-  console.log(SupportCategoryNumbers);
+  // console.log(SupportCategoryNumbers);
 
   const ItemsSequenceNumbers = [
     ...new Set(splitedItemNumbers.map((sn) => sn[1])),
   ];
-  console.log(ItemsSequenceNumbers);
+  // console.log(ItemsSequenceNumbers);
 
   const RegistrationGroupNumbers = [
     ...new Set(splitedItemNumbers.map((sn) => sn[2])),
   ];
-  console.log(RegistrationGroupNumbers);
+  // console.log(RegistrationGroupNumbers);
 
   const OutcomeDomain = [...new Set(splitedItemNumbers.map((sn) => sn[3]))];
-  console.log(OutcomeDomain);
+  // console.log(OutcomeDomain);
 
   const SupportPurpose = [...new Set(splitedItemNumbers.map((sn) => sn[4]))];
-  console.log(SupportPurpose);
+  // console.log(SupportPurpose);
 
   // const TTPServices = [...new Set(splitedItemNumbers.map((sn) => sn[5]))];
   // console.log(TTPServices);
